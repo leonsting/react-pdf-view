@@ -1,6 +1,6 @@
 # React-pdf-viewer
 
-> Custom from react-pdf-reader
+> Custom from reactjs-pdf-reader
 
 
 ## Features
@@ -27,17 +27,17 @@
 Using build tools:
 
 ```bash
-npm install --save reactjs-pdf-reader
+npm install --save reactjs-pdf-view
 ```
 Using PDFReader in PC:
 ```js
 import React from 'react';
-import { PDFReader } from 'reactjs-pdf-reader';
+import { PDFReader } from 'reactjs-pdf-view';
 ```
 Using MobilePDFReader in mobile terminal devices:
 ```js
 import React from 'react';
-import { MobilePDFReader } from 'reactjs-pdf-reader';
+import { MobilePDFReader } from 'reactjs-pdf-view';
 
 ```
 ### 2. Now you have it. The simplest usage:
@@ -66,7 +66,7 @@ react-read-pdf mainly consists of two different components. ***PDFReader and Mob
 ### 🌱 PDFReader
 
 ```js
-import { PDFReader } from 'reactjs-pdf-reader'
+import { PDFReader } from 'reactjs-pdf-view'
 
 ...
 <PDFReader url={"http://localhost:3000/test.pdf"} ...>
@@ -166,7 +166,7 @@ the other is :
 ### 🌱 MobilePDFReader
 
 ```js
-import { MobilePDFReader } from 'reactjs-pdf-reader'
+import { MobilePDFReader } from 'reactjs-pdf-view'
 
 ...
 <MobilePDFReader url={"http://localhost:3000/test.pdf"} ...>
