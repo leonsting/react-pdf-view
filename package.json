@@ -31,7 +31,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
-    "pdfjs-dist": "^2.3.200",
+    "pdfjs-dist": "2.0.550",
     "react-css-modules": "^4.7.7",
     "ts-loader": "^5.2.2",
     "typings-for-css-modules-loader": "^1.7.0",
@@ -75,7 +75,7 @@
     "webpack-dev-server": "^3.1.8",
     "webpack-merge": "^4.1.4"
   },
-  "homepage": "https://github.com/leonsting/react-pdf-view",
+  "homepage": "github.com/leonsting/react-pdf-view",
   "keywords": [
     "react",
     "pdf",
@@ -102,5 +102,5 @@
     "start-prod": "npm run build && node express.js",
     "test": "jest --watch --coverage --config=configs/jest.json"
   },
-  "version": "1.0.4"
+  "version": "1.0.5"
 }
