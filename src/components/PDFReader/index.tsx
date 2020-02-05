@@ -214,6 +214,7 @@ export class PDFReader extends React.Component<IProps, IStates> {
         }
     }
     public render(): JSX.Element {
+        console.log("Render PDF");
         const { style, totalPage, error } = this.state;
         const { showAllPage, errorMessage, addCustomPage } = this.props;
         if (error) {
