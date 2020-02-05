@@ -84,7 +84,7 @@
     "reactjs-pdf-view"
   ],
   "license": "MIT",
-  "main": "src/index.tsx",
+  "main": "lib/app.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:leonsting/react-pdf-view.git"
@@ -102,5 +102,5 @@
     "start-prod": "npm run build && node express.js",
     "test": "jest --watch --coverage --config=configs/jest.json"
   },
-  "version": "1.0.3"
+  "version": "1.0.4"
 }
