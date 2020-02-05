@@ -87,7 +87,7 @@
   "main": "lib/app.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:leonsting/react-pdf-view.git"
+    "url": "git+https://github.com/leonsting/react-pdf-view.git"
   },
   "scripts": {
     "build": "npm run clean-dist && webpack -p --config=configs/webpack/prod.js",
