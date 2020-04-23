@@ -2,9 +2,9 @@ import * as React from "react";
 import * as CSSModules from "react-css-modules";
 import * as styles from "./index.less";
 import * as pdfjsLib from "pdfjs-dist";
+import pdfjsWorker from "pdfjs-dist/build/pdf.worker.entry";
 // The workerSrc property shall be specified.
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.550/pdf.worker.js";
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 // the default params
 const DEFAULT_DESIRE_WIDTH = 980;
 const DEFAULT_SCALE = 1;
@@ -42,7 +42,7 @@ export class PDFReader extends React.Component<IProps, IStates> {
     style: null,
     page: 1,
     totalPage: 0,
-    error: false
+    error: false,
   };
   canvas: any;
   public constructor(props: IProps) {
@@ -55,12 +55,12 @@ export class PDFReader extends React.Component<IProps, IStates> {
       data,
       showAllPage,
       onDocumentComplete,
-      getPageNumber
+      getPageNumber,
     } = this.props;
     const dom: any = this.canvas.current;
     if (url) {
       let obj = {
-        url: null
+        url: null,
       };
       // fetch pdf and render
       if (typeof url === "string") {
@@ -70,7 +70,7 @@ export class PDFReader extends React.Component<IProps, IStates> {
       }
       pdfjsLib
         .getDocument(obj)
-        .then(pdf => {
+        .then((pdf) => {
           // is exit onDocumentComplete or not
           if (!showAllPage) {
             if (onDocumentComplete) {
@@ -92,7 +92,7 @@ export class PDFReader extends React.Component<IProps, IStates> {
     } else {
       // loaded the base64
       const loadingTask = pdfjsLib.getDocument({ data });
-      loadingTask.promise.then(pdf => {
+      loadingTask.promise.then((pdf) => {
         // is exit onDocumentComplete or not
         if (!showAllPage) {
           if (onDocumentComplete) {
@@ -135,7 +135,7 @@ export class PDFReader extends React.Component<IProps, IStates> {
   }
   private renderPage(dom, spnum) {
     let self = this;
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
       const { pdf, page } = self.state;
       const { width, scale, showAllPage } = self.props;
       let currentPage = page || 1;
@@ -149,7 +149,7 @@ export class PDFReader extends React.Component<IProps, IStates> {
         currentPage = 1;
       }
 
-      pdf.getPage(currentPage).then(page => {
+      pdf.getPage(currentPage).then((page) => {
         let desiredWidth;
         // if this.props has width props
         if (width) {
@@ -174,22 +174,22 @@ export class PDFReader extends React.Component<IProps, IStates> {
           self.setState({
             style: {
               height: "auto",
-              width: canvas.width
-            }
+              width: canvas.width,
+            },
           });
         } else {
           self.setState({
             style: {
               height: canvas.height,
-              width: canvas.width
-            }
+              width: canvas.width,
+            },
           });
         }
         const renderContext = {
           canvasContext,
-          viewport
+          viewport,
         };
-        page.render(renderContext).promise.then(function() {
+        page.render(renderContext).promise.then(function () {
           resolve(true);
         });
       });
@@ -205,7 +205,7 @@ export class PDFReader extends React.Component<IProps, IStates> {
         const dom = this["canvas" + i];
         proArr.push(this.renderPage(dom, i));
       }
-      Promise.all(proArr).then(function(values) {
+      Promise.all(proArr).then(function (values) {
         if (onDocumentComplete) {
           self.props.onDocumentComplete(pdf.numPages);
         }
@@ -248,7 +248,7 @@ export class PDFReader extends React.Component<IProps, IStates> {
                   onClick={this.getCurrentPageNumber.bind(this, index)}
                 >
                   <canvas
-                    ref={canvas => {
+                    ref={(canvas) => {
                       this["canvas" + index] = canvas;
                     }}
                     key={index + ""}
