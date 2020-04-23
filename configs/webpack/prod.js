@@ -14,7 +14,6 @@ module.exports = merge(commonConfig, {
     publicPath: '/',
     libraryTarget: 'umd',
   },
-  devtool: 'source-map',
   plugins: [],
   externals: {
        'react': 'react',
